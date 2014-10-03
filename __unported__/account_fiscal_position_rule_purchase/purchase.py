@@ -19,7 +19,7 @@
 #
 ###############################################################################
 
-from osv import osv
+from openerp.osv import osv
 
 
 class purchase_order(osv.Model):
@@ -55,8 +55,8 @@ class purchase_order(osv.Model):
         return self._fiscal_position_map(cr, uid, result, **kwargs)
 
     def onchange_dest_address_id(self, cr, uid, ids, partner_id,
-                                dest_address_id, company_id=None,
-                                context=None, **kwargs):
+                                 dest_address_id, company_id=None,
+                                 context=None, **kwargs):
         if not context:
             context = {}
 
