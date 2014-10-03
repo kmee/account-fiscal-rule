@@ -20,14 +20,13 @@
 #
 ###############################################################################
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 
 class product_template(osv.Model):
     _inherit = 'product.template'
     _columns = {
-        'property_fiscal_classification': fields.property(
-            'account.product.fiscal.classification',
+        'property_fiscal_classification': fields.property(            
             type='many2one',
             relation='account.product.fiscal.classification',
             string="Fiscal Classification",

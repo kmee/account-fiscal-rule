@@ -23,7 +23,7 @@
 #
 ###############################################################################
 
-from osv import osv
+from openerp.osv import osv
 
 
 class sale_order(osv.Model):
