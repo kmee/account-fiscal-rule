@@ -31,13 +31,15 @@ class sale_order(osv.Model):
 
     def _fiscal_position_map(self, cr, uid, result, **kwargs):
 
-        if not kwargs.get('context', False):
-            kwargs['context'] = {}
+        context = {}
+        if kwargs.get('context', False):
+            context = kwargs['context'].copy()
 
-        kwargs['context'].update({'use_domain': ('use_sale', '=', True)})
-        obj_shop = self.pool.get('sale.shop').browse(
-            cr, uid, kwargs.get('shop_id'))
-        company_id = obj_shop.company_id.id
+        context.update({'use_domain': ('use_sale', '=', True)})
+        kwargs['context'] = context
+        
+        obj_user = self.pool.get('res.users').browse(cr, uid, uid)
+        company_id = obj_user.company_id.id
         kwargs.update({'company_id': company_id})
         fp_rule_obj = self.pool.get('account.fiscal.position.rule')
         return fp_rule_obj.apply_fiscal_mapping(cr, uid, result, **kwargs)
@@ -49,12 +51,8 @@ class sale_order(osv.Model):
         result = super(sale_order, self).onchange_partner_id(
             cr, uid, ids, partner_id, context=context)
 
-        if not context.get('shop_id'):
-            return result
-
         values = result['value']
         kwargs = {
-            'shop_id': context['shop_id'],
             'partner_id': partner_id,
             'partner_invoice_id': values.get('partner_invoice_id', False),
             'partner_shipping_id': values.get('partner_shipping_id', False),
@@ -64,38 +62,16 @@ class sale_order(osv.Model):
 
     def onchange_address_id(self, cr, uid, ids, partner_invoice_id,
                             partner_shipping_id, partner_id,
-                            shop_id=False, context=None, **kwargs):
+                            context=None, **kwargs):
 
         if not context:
             context = {}
 
         result = {'value': {}}
-        if not shop_id or not partner_invoice_id:
+        if not partner_invoice_id:
             return result
 
-        kwargs.update({
-            'shop_id': shop_id,
-            'partner_id': partner_id,
-            'partner_invoice_id': partner_invoice_id,
-            'partner_shipping_id': partner_shipping_id,
-            'context': context
-        })
-        return self._fiscal_position_map(cr, uid, result, **kwargs)
-
-    def onchange_shop_id(self, cr, uid, ids, shop_id, context=None,
-                         partner_id=None, partner_invoice_id=None,
-                         partner_shipping_id=None, **kwargs):
-
-        if not context:
-            context = {}
-
-        result = super(sale_order, self).onchange_shop_id(
-            cr, uid, ids, shop_id, context=context)
-        if not shop_id or not partner_id:
-            return result
-
-        kwargs.update({
-            'shop_id': shop_id,
+        kwargs.update({          
             'partner_id': partner_id,
             'partner_invoice_id': partner_invoice_id,
             'partner_shipping_id': partner_shipping_id,
