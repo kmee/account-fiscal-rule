@@ -8,30 +8,37 @@
             <field name="model">account.fiscal.position.rule.template</field>
             <field name="arch" type="xml">
                 <form string="Fiscal Position Rule Template">
-                	<group>
-	                    <separator string="General" colspan="4"/>
-	                    <field name="name" select="1"/>
-	                    <newline/>
-	                    <field name="description" colspan="4"/>
-	                    <separator string="From" colspan="4"/>
-	                    <field name="from_country"/>
-	                    <field name="from_state"/>
-	                    <separator string="Invoicing" colspan="4"/>
-	                    <field name="to_invoice_country"/>
-	                    <field name="to_invoice_state"/>
-	                    <separator string="Shipping" colspan="4"/>
-	                    <field name="to_shipping_country"/>
-	                    <field name="to_shipping_state"/>
-	                    <separator string="Configuration" colspan="4"/>
+		        	 <group string="General">
+		        		<group>	                    
+		                	<field name="name" select="1"/>
+		                </group>
+		                <group>
+		                	<field name="description" />
+		                </group>
+		             </group>	                    	
+		             <group col="6">
+		               <group string="From" colspan="2">	                    
+		                	<field name="from_country"/>
+		                	<field name="from_state"/>
+		                </group>
+		                <group string="Invoicing" colspan="2">
+		                	<field name="to_invoice_country"/>
+		                	<field name="to_invoice_state"/>
+		                </group>
+		                <group string="Shipping" colspan="2">
+		                	<field name="to_shipping_country"/>
+		                	<field name="to_shipping_state"/>
+		                </group>
+		             </group>                	
+                	<group string="Configuration">	                    
 	                    <field name="fiscal_position_id"/>
-	                    <field name="sequence"/>
-	                    <newline/>
+	                    <field name="sequence"/>	                    
 	                    <field name="use_sale"/>
 	                    <field name="use_invoice"/>
 	                    <field name="use_purchase"/>
 	                    <field name="use_picking"/>
 	                    <field name="vat_rule"/>
-	                 </group>
+	               </group>
                 </form>
             </field>
         </record>
@@ -92,33 +99,42 @@
             <field name="model">account.fiscal.position.rule</field>
             <field name="arch" type="xml">
                 <form string="Fiscal Position Rule">
-                	<group>
-	                    <separator string="General" colspan="4"/>
-	                    <field name="name" select="1"/>
-	                    <newline/>
-	                    <field name="description" colspan="4"/>
-	                    <separator string="From" colspan="4"/>
-	                    <field name="from_country"/>
-	                    <field name="from_state"/>
-	                    <separator string="Invoicing" colspan="4"/>
-	                    <field name="to_invoice_country"/>
-	                    <field name="to_invoice_state"/>
-	                    <separator string="Shipping" colspan="4"/>
-	                    <field name="to_shipping_country"/>
-	                    <field name="to_shipping_state"/>
-	                    <separator string="Configuration" colspan="4"/>
-	                    <field name="date_start"/>
-	                    <field name="date_end"/>
-	                    <field name="company_id"/>
-	                    <field name="fiscal_position_id"/>
-	                    <field name="sequence"/>
-	                    <newline/>
-	                    <field name="use_sale"/>
-	                    <field name="use_invoice"/>
-	                    <field name="use_purchase"/>
-	                    <field name="use_picking"/>
-	                    <field name="vat_rule"/>
-	            	</group>
+                	<group string="General">
+                		<group>	                    
+	                    	<field name="name" select="1"/>
+	                    </group>
+	                    <group>
+	                    	<field name="description" />
+	                    </group>
+	                 </group>	                    	
+	                 <group col="6">
+	                   <group string="From" colspan="2">	                    
+	                    	<field name="from_country"/>
+	                    	<field name="from_state"/>
+	                    </group>
+	                    <group string="Invoicing" colspan="2">
+	                    	<field name="to_invoice_country"/>
+	                    	<field name="to_invoice_state"/>
+	                    </group>
+	                    <group string="Shipping" colspan="2">
+	                    	<field name="to_shipping_country"/>
+	                    	<field name="to_shipping_state"/>
+	                    </group>
+	                 </group>
+	                 <group>
+		                 <group string="Configuration">	                    
+		                    <field name="date_start"/>
+		                    <field name="date_end"/>
+		                    <field name="company_id"/>
+		                    <field name="fiscal_position_id"/>
+		                    <field name="sequence"/>	                    
+		                    <field name="use_sale"/>
+		                    <field name="use_invoice"/>
+		                    <field name="use_purchase"/>
+		                    <field name="use_picking"/>
+		                    <field name="vat_rule"/>
+		            	</group>
+		            </group>
                 </form>
             </field>
         </record>
