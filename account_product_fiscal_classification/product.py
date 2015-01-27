@@ -29,8 +29,7 @@ class product_template(osv.Model):
         'property_fiscal_classification': fields.property(            
             type='many2one',
             relation='account.product.fiscal.classification',
-            string="Fiscal Classification",
-            view_load=True,
+            string="Fiscal Classification",            
             help="Company wise (eg localizable) Fiscal Classification"),
     }
 
