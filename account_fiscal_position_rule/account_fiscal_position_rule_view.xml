@@ -8,7 +8,7 @@
             <field name="model">account.fiscal.position.rule.template</field>
             <field name="arch" type="xml">
                 <form string="Fiscal Position Rule Template">
-		        	 <group string="General">
+		        	<group string="General">
 		        		<group>	                    
 		                	<field name="name" select="1"/>
 		                </group>
@@ -16,7 +16,7 @@
 		                	<field name="description" />
 		                </group>
 		             </group>	                    	
-		             <group col="6">
+		            <group col="6">
 		               <group string="From" colspan="2">	                    
 		                	<field name="from_country"/>
 		                	<field name="from_state"/>
@@ -29,16 +29,18 @@
 		                	<field name="to_shipping_country"/>
 		                	<field name="to_shipping_state"/>
 		                </group>
-		             </group>                	
-                	<group string="Configuration">	                    
-	                    <field name="fiscal_position_id"/>
-	                    <field name="sequence"/>	                    
-	                    <field name="use_sale"/>
-	                    <field name="use_invoice"/>
-	                    <field name="use_purchase"/>
-	                    <field name="use_picking"/>
-	                    <field name="vat_rule"/>
-	               </group>
+		             </group>         
+		             <group>       	
+	                	<group string="Configuration">	                    
+		                    <field name="fiscal_position_id"/>
+		                    <field name="sequence"/>	                    
+		                    <field name="use_sale"/>
+		                    <field name="use_invoice"/>
+		                    <field name="use_purchase"/>
+		                    <field name="use_picking"/>
+		                    <field name="vat_rule"/>
+		                 </group>
+		             </group>		               
                 </form>
             </field>
         </record>

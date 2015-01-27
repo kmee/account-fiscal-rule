@@ -42,7 +42,7 @@
 				<form string="Fiscal Classification Template">
 					<group>
 						<field name="name" />
-						<field colspan="4" name="description" />
+						<field name="description" />
 						<newline />
 						<separator string="Sale Taxes" colspan="2" />						
 						<field colspan="2" nolabel="1" name="sale_base_tax_ids" />
