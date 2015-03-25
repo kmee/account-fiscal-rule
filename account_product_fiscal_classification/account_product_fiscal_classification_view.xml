@@ -7,16 +7,18 @@
 			<field name="model">account.product.fiscal.classification</field>
 			<field name="arch" type="xml">
 				<form string="Fiscal Classification">
-					<field name="name" />
-					<field name="company_id" />
-					<field name="description" />
-					<button colspan="2" name="button_update_products" string="Update Products"
-						type="object" icon="gtk-execute" />
-					<newline />
-					<separator string="Sale Taxes" colspan="2" />
-					<separator string="Purchase Taxes" colspan="2" />
-					<field colspan="2" nolabel="1" name="sale_base_tax_ids" />
-					<field colspan="2" nolabel="1" name="purchase_base_tax_ids" />
+					<group>
+						<field name="name" />
+						<field name="company_id" />
+						<field name="description" />
+						<button colspan="2" name="button_update_products" string="Update Products"
+							type="object" icon="gtk-execute" />
+						<newline />
+						<separator string="Sale Taxes" colspan="2" />
+						<field colspan="2" nolabel="1" name="sale_base_tax_ids" />
+						<separator string="Purchase Taxes" colspan="2" />
+						<field colspan="2" nolabel="1" name="purchase_base_tax_ids" />
+					</group>
 				</form>
 			</field>
 		</record>
@@ -38,13 +40,15 @@
 			<field name="model">account.product.fiscal.classification.template</field>
 			<field name="arch" type="xml">
 				<form string="Fiscal Classification Template">
-					<field name="name" />
-					<field colspan="4" name="description" />
-					<newline />
-					<separator string="Sale Taxes" colspan="2" />
-					<separator string="Purchase Taxes" colspan="2" />
-					<field colspan="2" nolabel="1" name="sale_base_tax_ids" />
-					<field colspan="2" nolabel="1" name="purchase_base_tax_ids" />
+					<group>
+						<field name="name" />
+						<field name="description" />
+						<newline />
+						<separator string="Sale Taxes" colspan="2" />						
+						<field colspan="2" nolabel="1" name="sale_base_tax_ids" />
+						<separator string="Purchase Taxes" colspan="2" />
+						<field colspan="2" nolabel="1" name="purchase_base_tax_ids" />
+					</group>
 				</form>
 			</field>
 		</record>

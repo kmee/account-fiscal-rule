@@ -5,7 +5,7 @@
         <record model="ir.ui.view" id="product_fiscal_classification_product_normal_form_view">
             <field name="name">product_fiscal_classification_product_normal_form_view</field>
             <field name="model">product.product</field>
-            <field name="inherit_id" ref="account.product_normal_form_view"/>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
                 <group name="properties" position="before">
                     <group string="Fiscal Properties" col="4" colspan="4">
