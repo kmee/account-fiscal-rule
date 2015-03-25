@@ -3,7 +3,10 @@
 #
 #   account_fiscal_position_rule for OpenERP
 #   Copyright (C) 2009-TODAY Akretion <http://www.akretion.com>
+#     @author Sébastien BEAU <sebastien.beau@akretion.com>
 #     @author Renato Lima <renato.lima@akretion.com>
+#   Copyright 2012 Camptocamp SA
+#     @author: Guewen Baconnier
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as
 #   published by the Free Software Foundation, either version 3 of the
@@ -19,5 +22,23 @@
 #
 ###############################################################################
 
-import account_fiscal_position_rule
-import account_invoice
+{
+    'name': 'Account Fiscal Position Rule',
+    'version': '1.2',
+    'category': 'Generic Modules/Accounting',
+    'description': """Include a rule to decide the correct fiscal position""",
+    'author': "Akretion,Odoo Community Association (OCA)",
+    'license': 'AGPL-3',
+    'website': 'http://www.akretion.com',
+    'depends': [
+        'account',
+    ],
+    'data': [
+        'account_fiscal_position_rule_view.xml',
+        'security/account_fiscal_position_rule_security.xml',
+        'security/ir.model.access.csv',
+    ],
+    'demo': [],
+    'test': ['test/test_rules.yml'],
+    'installable': True,
+}

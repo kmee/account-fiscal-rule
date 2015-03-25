@@ -25,12 +25,12 @@
     'category': 'Generic Modules/Accounting',
     'description': """Include a rule to decide the correct
     fiscal position for Stock""",
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'website': 'http://www.akretion.com',
     'depends': [
         'account_fiscal_position_rule',
-        'stock',
+        'stock_account',
     ],
     'data': [
         'stock_view.xml',
@@ -38,5 +38,5 @@
         'security/ir.model.access.csv',
     ],
     'demo': [],
-    'installable': False,
+    'installable': True,
 }
