@@ -36,7 +36,7 @@ class SaleOrder(models.Model):
             ctx).apply_fiscal_mapping(result, **kwargs)
 
     @api.multi
-    def onchange_partner_id(self, partner_id):
+    def onchange_partner_id(self, partner_id, **kwargs):
         ctx = dict(self._context)
 
         result = super(SaleOrder, self).onchange_partner_id(partner_id)
@@ -44,30 +44,30 @@ class SaleOrder(models.Model):
         if not ctx.get('company_id'):
             return result
 
-        kwargs = {
+        kwargs.update({
             'company_id': ctx.get('company_id'),
             'partner_id': partner_id,
             'partner_invoice_id': result['value'].get(
                 'partner_invoice_id', False),
             'partner_shipping_id': result['value'].get(
                 'partner_shipping_id', False),
-        }
+        })
         return self._fiscal_position_map(result, **kwargs)
 
     @api.multi
     def onchange_address_id(self, partner_invoice_id, partner_shipping_id,
-                            partner_id, company_id):
+                            partner_id, company_id, **kwargs):
 
         result = {'value': {}}
         if not company_id or not partner_invoice_id:
             return result
 
-        kwargs = {
+        kwargs.update({
             'company_id': company_id,
             'partner_id': partner_id,
             'partner_invoice_id': partner_invoice_id,
             'partner_shipping_id': partner_shipping_id,
-        }
+        })
         return self._fiscal_position_map(result, **kwargs)
 
     @api.multi
