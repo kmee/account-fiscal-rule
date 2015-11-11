@@ -31,4 +31,4 @@
     groups_id:
         - base.group_user
         - base.group_sale_manager
-        - account.group_account_invoice
+        - account.group_account_manager
