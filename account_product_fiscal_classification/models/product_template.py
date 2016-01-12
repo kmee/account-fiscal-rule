@@ -85,7 +85,7 @@ class ProductTemplate(models.Model):
             # update or replace 'taxes_id' and 'supplier_taxes_id'
             classification = self.env[
                 'account.product.fiscal.classification'].browse(
-                vals['fiscal_classification_id']).product_tmpl_ids
+                vals['fiscal_classification_id'])
             tax_vals = {
                 'supplier_taxes_id': [[6, 0, [
                     x.id for x in classification.purchase_tax_ids]]],
